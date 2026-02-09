@@ -27,7 +27,7 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes
 
-    Note right of browser: The user enters text into the form text input element, and clicks the form submit button. The onsubmit event handler adds the content of the text input element to a note object, along with the current date, and sends that object to the server, which adds the input to the data.json. The event handler also replaces the current page's notes in the DOM with a new array of notes, including the most recently submitted one. 
+    Note right of browser: The user enters text into the form text input element, and clicks the form submit button. <br>The onsubmit event handler adds the content of the text input element to a note object, along with the current date,<br> and sends that object to the server, which adds the input to the data.json.<br>The event handler also replaces the current page's notes in the DOM with a new array of notes, including the most recently submitted one. 
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa <br> Payload: {"content":"user input","date":"2026-02-09T18:34:57.588Z"}
     activate server
