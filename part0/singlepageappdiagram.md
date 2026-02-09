@@ -1,0 +1,34 @@
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate server
+
+    Note right of browser: The browser executes the callback function that renders the notes
+
+    Note right of browser: The user enters text into the form text input element, and clicks the form submit button. The onsubmit event handler adds the content of the text input element to a note object, along with the current date, and sends that object to the server, which adds the input to the data.json. The event handler also replaces the current page's notes in the DOM with a new array of notes, including the most recently submitted one. 
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa <br> Payload: {"content":"user input","date":"2026-02-09T18:34:57.588Z"}
+    activate server
+```
