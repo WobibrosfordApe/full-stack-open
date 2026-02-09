@@ -29,8 +29,7 @@ sequenceDiagram
 
     Note right of browser: The user enters text into the form text input element, and clicks the form submit button
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    Payload: note=user+input
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note <br> Payload: note=user+input
     activate server
     server-->>browser: redirect back to /notes page
     deactivate server
